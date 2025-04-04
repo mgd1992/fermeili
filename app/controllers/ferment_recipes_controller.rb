@@ -46,6 +46,6 @@ class FermentRecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ferment_recipe_params
-      params.require(:ferment_recipe).permit(:name, :ingredients, :instructions, :fermentation_time)
+      params.require(:ferment_recipe).permit(:name, :ingredients, :instructions, :fermentation_time, photos: [])
     end
 end

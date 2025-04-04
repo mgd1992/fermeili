@@ -10,6 +10,7 @@ class UserFermentsController < ApplicationController
 
   # GET /user_ferments/1
   def show
+    
     render json: @user_ferment
   end
 
