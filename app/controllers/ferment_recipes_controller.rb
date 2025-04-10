@@ -20,7 +20,7 @@ class FermentRecipesController < ApplicationController
     if @ferment_recipe.save
       render json: @ferment_recipe, status: :created, location: @ferment_recipe
     else
-      render json: @ferment_recipe.errors, status: :unprocessable_entity
+      render json: @ferment_recipe.errors.full_messages, status: :unprocessable_entity
     end
   end
 

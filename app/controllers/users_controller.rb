@@ -10,7 +10,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    user = User.find(params[:id])
     render json: @user
+    rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Usuario no encontrado' }, status: 404
+
   end
 
   # POST /users
@@ -40,12 +44,12 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :photo)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :photo)
+  end
 end
