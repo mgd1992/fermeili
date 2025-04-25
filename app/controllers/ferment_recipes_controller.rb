@@ -18,7 +18,7 @@ class FermentRecipesController < ApplicationController
     @ferment_recipe = FermentRecipe.new(ferment_recipe_params)
 
     if @ferment_recipe.save
-      render json: @ferment_recipe, status: :created, location: @ferment_recipe
+      render json: @ferment_recipe, status: :created, location: @ferment_recipes
     else
       render json: @ferment_recipe.errors.full_messages, status: :unprocessable_entity
     end
