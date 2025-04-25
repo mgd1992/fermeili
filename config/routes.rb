@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   get "home/index"
 
   resources :user_ferments, only: [:index, :show, :create, :update, :destroy]
-  resources :users, only: [:index, :show]
+  resources :users
   resources :ferment_recipes, only: [:index, :show, :create, :update, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  post '/login', to: 'sessions#create'
 
 
 
